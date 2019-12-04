@@ -91,6 +91,7 @@ namespace Comandos
             cadenaCopy = null;
 
             ItemsListBox.Items.Add(itm);
+
         }
 
         private void Commands_Paste_CanExecute(object sender, CanExecuteRoutedEventArgs e)
