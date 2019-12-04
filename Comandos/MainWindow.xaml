@@ -44,6 +44,8 @@
             <MenuItem Header="Copiar" Command="ApplicationCommands.Copy"/>
             <MenuItem Header="Pegar" Command="ApplicationCommands.Paste"/>
         </ContextMenu>
+
+        <BooleanToVisibilityConverter x:Key="BooleanVC"></BooleanToVisibilityConverter>
     </Window.Resources>
     
 
@@ -89,7 +91,7 @@
 
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
-            <ToolBar x:Name="PrincipalToolBar">
+            <ToolBar x:Name="PrincipalToolBar" Visibility="{Binding ElementName=GeneralMenu, Path=IsChecked,  Converter={StaticResource BooleanVC}}">
                 <Button Command="ApplicationCommands.New">
                     <Image Source="img/add.ico"/>
                 </Button>
@@ -98,7 +100,7 @@
                 </Button>
             </ToolBar>
 
-            <ToolBar>
+            <ToolBar Visibility="{Binding ElementName=EdicionMenu, Path=IsChecked,  Converter={StaticResource BooleanVC}}">
                 <Button x:Name="CopyToolbar" Command="ApplicationCommands.Copy">
                     <Image Source="img/copy.ico"/>
                 </Button>
